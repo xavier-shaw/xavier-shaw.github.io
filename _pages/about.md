@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
+    <p>yuweix@ucla.edu</p>
     <p>123 your address street</p>
     <p>Your City, State 12345</p>
 
@@ -27,7 +27,3 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 I am a first-year CS PhD student at UCLA advised by [Prof. Eunice Jun](https://eunicemjun.com).
 
 Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD. I earned my bachelor degree from Southern University of Science and Technology (SUSTech).
-
-<!-- 📖 Research
-====== -->
-<!-- As a **system researcher**, my research interests lie in **Human-Computer Interaction**, especially in building intelligent interactive systems with a focus on application areas of <u>Information Visualization</u>, <u>Sense-making</u>, and <u>Usable Privacy</u>. My aspiration is to bridge the gap between humans and computational systems to foster more productive and creative outcomes by designing and building user interfaces with human-centered methods.  -->
