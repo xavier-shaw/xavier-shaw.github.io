@@ -2,7 +2,6 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -15,7 +14,7 @@ profile:
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 ---
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
@@ -26,4 +25,6 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 I am a first-year CS PhD student at UCLA advised by [Prof. Eunice Jun](https://eunicemjun.com).
 
-Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD. I earned my bachelor degree from Southern University of Science and Technology (SUSTech).
+My research interests lie in the intersection of Human-Computer Interaction and Information Visualization. Specifically, I build interactive systems to support individuals understand complex information and make informed decisions.
+
+Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD as a visiting student. And I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
