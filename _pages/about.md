@@ -5,7 +5,7 @@ permalink: /
 
 profile:
   align: right
-  image: profile_pic.jpg
+  image: profile_pic.JPG
   image_circular: false # crops the image to make it circular
   more_info: >
     <a href="mailto:yuweix@ucla.edu"><i class="fas fa-envelope"></i> yuweix@ucla.edu</a>
