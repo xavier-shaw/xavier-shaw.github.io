@@ -5,12 +5,12 @@ permalink: /
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>yuweix@ucla.edu</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <a href="mailto:yuweix@ucla.edu"><i class="fas fa-envelope"></i> yuweix@ucla.edu</a>
+    <a href="https://github.com/xavierywx"><i class="fab fa-github"></i> Github</a>
+    <a href="https://www.linkedin.com/in/yuwei-xiao-88813828a/"><i class="fab fa-linkedin"></i> LinkedIn</a>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -25,6 +25,6 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 I am a first-year CS PhD student at UCLA advised by [Prof. Eunice Jun](https://eunicemjun.com).
 
-My research interests lie in the intersection of Human-Computer Interaction and Information Visualization. Specifically, I build interactive systems to support individuals understand complex information and make informed decisions.
+My research interests lie in the intersection of Human-Computer Interaction, Information Visualization, and Data Science. Specifically, I design interactive systems that help individuals understand complex information, uncover subtle insights, and make informed decisions. Currently, I am developing an interactive elicitation approach to support experts in effectively and accurately expressing their domain knowledge in statistical analysis.
 
-Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD as a visiting student. And I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
+Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD. And I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).

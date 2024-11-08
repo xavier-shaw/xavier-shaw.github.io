@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started my PhD at [UCLA CS](https://www.cs.ucla.edu)!
+Started my PhD journey at [UCLA CS](https://www.cs.ucla.edu)!
