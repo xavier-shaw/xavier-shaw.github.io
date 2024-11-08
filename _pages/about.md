@@ -18,6 +18,6 @@ social: false # includes social icons at the bottom of the page
 ---
 I am a first-year CS PhD student at UCLA advised by [Prof. Eunice Jun](https://eunicemjun.com).
 
-My research interests lie in the intersection of Human-Computer Interaction, Information Visualization, and Data Science. Specifically, I design interactive systems that help individuals understand complex information, uncover subtle insights, and make informed decisions. Currently, I am developing an interactive elicitation approach to support experts in effectively and accurately expressing their domain knowledge in statistical analysis.
+My research interests lie in the intersection of human-computer interaction, information visualization, and end-user programming. Specifically, I design interactive systems that help individuals (especially non-expert) understand complex information, uncover subtle insights, and make informed decisions. Currently, I am developing an interactive elicitation approach to support experts in effectively and accurately expressing their domain knowledge in statistical analysis.
 
 Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD. And I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
