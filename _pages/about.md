@@ -8,7 +8,7 @@ profile:
   image: profile_pic.JPG
   image_circular: false # crops the image to make it circular
   more_info: >
-    <a href="mailto:yuweix@ucla.edu"><i class="fas fa-envelope"></i> yuweix@ucla.edu</a><br/>
+    <a href="mailto:yuweix@ucla.edu"><i class="fas fa-envelope"></i></a>
     <a href="https://github.com/xavierywx"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/yuwei-xiao-88813828a/"><i class="fab fa-linkedin"></i></a>
     <a href="https://x.com/XavierXiao_"><i class="fab fa-x"></i></a>
@@ -23,4 +23,4 @@ My research interests lie in the intersection of human-computer interaction, inf
 
 Currently, I am developing an interactive elicitation approach to support experts in effectively and accurately expressing their domain knowledge in statistical analysis.
 
-Previously, I was luckily advised by [Prof. Haojian Jin](http://shift-3.com) at UCSD. And I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
+Previously, I was fortunated to work with [Prof. Haojian Jin](http://shift-3.com) at UCSD. I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
