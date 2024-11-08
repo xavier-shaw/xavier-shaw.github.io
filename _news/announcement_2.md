@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-05/2024: Served as a Student Volunteer at [CHI 2024](https://uist.acm.org/2023/)!
+Served as a Student Volunteer at [CHI 2024](https://uist.acm.org/2023/)!
