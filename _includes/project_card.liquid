@@ -1,0 +1,156 @@
+{% comment %}
+Modern project card template for bibliography entries
+Usage: {% include project_card.liquid entry=entry %}
+{% endcomment %}
+
+<div class="project-card">
+  <!-- Visual Abstract / Thumbnail -->
+  {% if entry.preview %}
+    <div class="card-image">
+      {% if entry.preview contains '://' %}
+        <img src="{{ entry.preview }}" alt="{{ entry.title | truncate: 60 }}" class="card-thumbnail">
+      {% else %}
+        {% assign image_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+        <img src="{{ image_path | relative_url }}" alt="{{ entry.title | truncate: 60 }}" class="card-thumbnail" loading="lazy">
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <!-- Header Section -->
+  <div class="card-header">
+    <div class="venue-info">
+      {% if entry.venue %}
+        {{ entry.venue }}
+      {% endif %}
+    </div>
+    
+    <div class="card-tags">
+      {% if entry.abbr %}
+        <span class="tag">{{ entry.abbr }}</span>
+      {% endif %}
+      {% if entry.tags %}
+        {% assign tag_list = entry.tags | split: ',' %}
+        {% for tag in tag_list %}
+          <span class="tag">{{ tag | strip }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h3 class="card-title">{{ entry.title }}</h3>
+
+  <!-- Authors -->
+  <div class="card-authors">
+    {% assign author_array_size = entry.author_array | size %}
+    {% assign author_array_limit = author_array_size %}
+    {% if site.max_author_limit and author_array_size > site.max_author_limit %}
+      {% assign author_array_limit = site.max_author_limit %}
+    {% endif %}
+
+    {%- for author in entry.author_array limit: author_array_limit -%}
+      {% assign author_is_self = false %}
+      {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+      {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+      {% if site.scholar.last_name contains author_last_name %}
+        {% if site.scholar.first_name contains author.first %}
+          {% assign author_is_self = true %}
+        {% endif %}
+      {%- endif -%}
+      
+      {%- if forloop.length > 1 -%}
+        {% if forloop.first == false %}, {% endif %}
+        {%- if forloop.last and author_array_limit == author_array_size %} and {% endif -%}
+      {% endif %}
+      
+      {%- if author_is_self -%}
+        <span class="author-self">{{ author.first }} {{ author_last_html }}</span>
+      {%- else -%}
+        {{ author.first }} {{ author_last_html }}
+      {%- endif -%}
+    {% endfor %}
+  </div>
+
+  <!-- Abstract/Description -->
+  {% if entry.abstract %}
+    <p class="card-abstract">{{ entry.abstract | truncate: 200 }}</p>
+  {% endif %}
+
+  <!-- Award Badge -->
+  {% if entry.award %}
+    <div class="award-badge">
+      {%- if entry.award_name -%}
+        {{ entry.award_name }}
+      {%- else -%}
+        BEST PAPER HONORABLE MENTION
+      {%- endif -%}
+    </div>
+  {% endif %}
+
+  <!-- Action Links -->
+  <div class="card-links">
+    {% if entry.pdf %}
+      <a href="{% if entry.pdf contains '://' %}{{ entry.pdf }}{% else %}{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}" 
+         class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-file-pdf"></i>
+        <span>paper</span>
+      </a>
+    {% endif %}
+
+    {% if entry.url %}
+      <a href="{{ entry.url }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt"></i>
+        <span>project</span>
+      </a>
+    {% endif %}
+
+    {% if entry.demo %}
+      <a href="{{ entry.demo }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-play"></i>
+        <span>demo</span>
+      </a>
+    {% elsif entry.website %}
+      <a href="{{ entry.website }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-play"></i>
+        <span>demo</span>
+      </a>
+    {% endif %}
+
+    {% if entry.code %}
+      <a href="{{ entry.code }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-code"></i>
+        <span>code</span>
+      </a>
+    {% endif %}
+
+    {% if entry.poster %}
+      <a href="{% if entry.poster contains '://' %}{{ entry.poster }}{% else %}{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}{% endif %}" 
+         class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-image"></i>
+        <span>poster</span>
+      </a>
+    {% endif %}
+
+    {% if entry.slides %}
+      <a href="{% if entry.slides contains '://' %}{{ entry.slides }}{% else %}{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}{% endif %}" 
+         class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-presentation"></i>
+        <span>slides</span>
+      </a>
+    {% endif %}
+
+    {% if entry.doi %}
+      <a href="https://doi.org/{{ entry.doi }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-link"></i>
+        <span>doi</span>
+      </a>
+    {% endif %}
+
+    {% if entry.arxiv %}
+      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-arxiv"></i>
+        <span>arxiv</span>
+      </a>
+    {% endif %}
+  </div>
+</div>
