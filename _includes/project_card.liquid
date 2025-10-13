@@ -90,17 +90,10 @@ Usage: {% include project_card.liquid entry=entry %}
   <!-- Action Links -->
   <div class="card-links">
     {% if entry.pdf %}
-      <a href="{% if entry.pdf contains '://' %}{{ entry.pdf }}{% else %}{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}" 
+      <a href="{{ entry.pdf | prepend: '/assets/pdf/' }}" 
          class="action-btn" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-file-pdf"></i>
         <span>paper</span>
-      </a>
-    {% endif %}
-
-    {% if entry.url %}
-      <a href="{{ entry.url }}" class="action-btn" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-external-link-alt"></i>
-        <span>project</span>
       </a>
     {% endif %}
 
@@ -140,14 +133,14 @@ Usage: {% include project_card.liquid entry=entry %}
     {% endif %}
 
     {% if entry.doi %}
-      <a href="https://doi.org/{{ entry.doi }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+      <a href="{{ entry.doi }}" class="action-btn" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-link"></i>
         <span>doi</span>
       </a>
     {% endif %}
 
     {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+      <a href="{{ entry.arxiv }}" class="action-btn" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-arxiv"></i>
         <span>arxiv</span>
       </a>
