@@ -71,9 +71,9 @@ Usage: {% include project_card.liquid entry=entry %}
     {% endfor %}
   </div>
 
-  <!-- Abstract/Description -->
-  {% if entry.abstract %}
-    <p class="card-abstract">{{ entry.abstract | truncate: 200 }}</p>
+  <!-- One-sentence Summary -->
+  {% if entry.summary %}
+    <p class="card-summary">{{ entry.summary | truncate: 200 }}</p>
   {% endif %}
 
   <!-- Award Badge -->

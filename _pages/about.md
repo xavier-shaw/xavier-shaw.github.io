@@ -27,3 +27,5 @@ I design and build interactive visualization interfaces that make abstract or op
 Broadly, my interests lie at the intersection of **human–computer interaction**, **data visualization**, **human–AI collaboration**, and **sense-making**. I’m particularly passionate about visual thinking—how visualization can spark insight, creativity, and shared understanding between people and intelligent systems.
 
 Previously, I was fortunated to work with [Prof. Haojian Jin](https://www.haojianj.in) in the at UCSD. I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
+
+> **⭐️ I’m actively seeking research internship opportunities for Summer 2026! If you'd like to collaborate or just chat about research, feel free to reach out :)**
