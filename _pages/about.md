@@ -3,17 +3,22 @@ layout: about
 title: about
 permalink: /
 
+subtitle: Computer Science Ph.D. Student at UCLA
+
 profile:
-  align: left
   image: profile_pic.JPG
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <a href="/assets/pdf/resume.pdf" target="_blank"><i class="icon fas fa-file-pdf" /></a>
-    <a href="mailto:yuweix@ucla.edu"><i class="icon fas fa-envelope" /></a>
-    <a href="https://scholar.google.com/citations?user=1kBOXhsAAAAJ&hl=en"><i class="icon fab fa-google-scholar"/></a>
-    <a href="https://github.com/xavier-shaw"><i class="icon fab fa-github"/></a>
-    <a href="https://x.com/XavierXiao_"><i class="icon fab fa-twitter"/></a>
-    <a href="https://www.linkedin.com/in/yuwei-xiao-ucla/"><i class="icon fab fa-linkedin"/></a>
+  email: yuweix@ucla.edu
+  links:
+    - name: CV
+      url: /assets/pdf/resume.pdf
+    - name: Google Scholar
+      url: https://scholar.google.com/citations?user=1kBOXhsAAAAJ&hl=en
+    - name: GitHub
+      url: https://github.com/xavier-shaw
+    - name: X
+      url: https://x.com/XavierXiao_
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/yuwei-xiao-ucla/
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page

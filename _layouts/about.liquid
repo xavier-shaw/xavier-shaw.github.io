@@ -13,64 +13,66 @@ layout: default
   </script>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+    <section class="intro">
+      <aside class="identity">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
           {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            include figure.liquid loading="eager" path=profile_image_path class="portrait" sizes="220px" alt="Portrait of Yuwei Xiao"
             cache_bust=true
           %}
         {% endif %}
-      </div>
-    {% endif %}
 
-    <div class="clearfix">
-      <div class="d-md-flex justify-content-between about-title">
-        <span class="h2 font-weight-bold">{{ site.first_name }} {{ site.last_name }}</span>
-
-        {% if page.profile.more_info %}
-            <div class="more-info">{{ page.profile.more_info }}</div>
+        {% if page.profile.email %}
+          <a class="identity-email" href="mailto:{{ page.profile.email }}">{{ page.profile.email }}</a>
         {% endif %}
+
+        <nav class="identity-links" aria-label="Profiles">
+          {% for link in page.profile.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+              {{- link.name -}}
+              <svg class="arrow" width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                <path d="M8 1L1 8M2.4 1H8M8 6.6V1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+              </svg>
+            </a>
+          {% endfor %}
+        </nav>
+      </aside>
+
+      <div class="bio">
+        <h1>{{ site.first_name }} {{ site.last_name }}</h1>
+        {% if page.subtitle %}
+          <p class="subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        {{ content }}
       </div>
+    </section>
 
-      <p class="mb-2 h5">Computer Science Ph.D. Student at UCLA</p>
-
-      {{ content }}
-    </div>
+    <!-- News -->
+    {% if page.news and site.announcements.enabled %}
+      <section class="home-section">
+        <h2>News</h2>
+        {% include news.liquid limit=true %}
+      </section>
+    {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <div class="my-4 section-divider"/>
-      <p class="h2 my-2">
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Research</a>
-      </p>
-      {% include selected_papers.liquid %}
-    {% endif %}
-    
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <div class="my-4 section-divider"/>
-      <p class="h2 my-2">
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
-      </p>
-      {% include news.liquid limit=true %}
+      <section class="home-section">
+        <div class="section-head">
+          <h2>Research</h2>
+          <a href="{{ '/publications/' | relative_url }}">All publications</a>
+        </div>
+        {% include selected_papers.liquid %}
+      </section>
     {% endif %}
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
-      <p class="h2 my-2">
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </p>
-      {% include latest_posts.liquid %}
+      <section class="home-section">
+        <h2><a href="{{ '/blog/' | relative_url }}">Latest posts</a></h2>
+        {% include latest_posts.liquid %}
+      </section>
     {% endif %}
 
     <!-- Social -->
