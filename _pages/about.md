@@ -65,6 +65,6 @@ I design and study interactive systems that help people (i) understand and commu
 
 I aspire to build collaborative experiences in which humans and AI stay in a tight loop, with human knowledge aligning AI as AI augments human intelligence.
 
-I obtained my bachelor degree in Computer Science from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/). Previously, I was fortunated to intern at Microsoft Research with [Chenglong Wang](https://chenglongwang.org/), and work with [Prof. Haojian Jin](https://www.haojianj.in) at UCSD.
+I obtained my bachelor’s degree in Computer Science from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/) (SUSTech). Previously, I was fortunate to intern at Microsoft Research with [Chenglong Wang](https://chenglongwang.org/), and work with [Prof. Haojian Jin](https://www.haojianj.in) at UCSD.
 
 > **⭐️ I’m seeking research internship opportunities! If you'd like to collaborate or chat about research, please feel free to reach out :)**
