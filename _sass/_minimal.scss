@@ -158,7 +158,7 @@ footer.fixed-bottom {
 
   .identity {
     float: left;
-    width: 220px;
+    width: 260px;
     margin: 0 40px 20px 0;
     display: flex;
     flex-direction: column;
@@ -169,15 +169,33 @@ footer.fixed-bottom {
 
     .portrait,
     img {
-      width: 220px;
-      height: 220px;
+      width: 260px;
+      height: 260px;
       object-fit: cover;
       border-radius: 6px;
       box-shadow: none;
     }
   }
 
+  // Fixed-width icon slot so the labels after the icons line up.
+  .identity-email i,
+  .identity-links i {
+    width: 16px;
+    font-size: 13px;
+    text-align: center;
+    color: var(--global-text-color-light);
+    transition: color 0.15s ease;
+  }
+
+  .identity-email:hover i,
+  .identity-links a:hover i {
+    color: var(--accent);
+  }
+
   .identity-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-top: 20px;
     padding: 0 4px 10px;
     font-size: 14px;
@@ -198,12 +216,13 @@ footer.fixed-bottom {
     a {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
       font-size: 14px;
       line-height: 30px;
       color: var(--global-text-color);
 
       .arrow {
+        margin-left: -4px;
         transition: transform 0.15s ease;
       }
 
@@ -226,6 +245,92 @@ footer.fixed-bottom {
       line-height: 1.05;
       letter-spacing: -0.01em;
       margin: 0;
+    }
+
+    .affiliations {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px 0 20px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    // Each row starts at the left edge: label, then its organisations.
+    .affiliation-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .affiliations dt {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--global-text-color-light);
+    }
+
+    .affiliations dd {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0;
+      color: var(--global-text-color);
+
+      .org {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 400;
+        white-space: nowrap;
+        border-bottom: 0;
+
+        span {
+          border-bottom: 1px solid var(--link-line);
+        }
+
+        &:hover span {
+          border-bottom-color: currentColor;
+        }
+      }
+
+      // Every icon sits in the same 20px slot, so names line up across rows.
+      .org-icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
+
+      .sep {
+        margin: 0 8px;
+        color: var(--global-text-color-light);
+      }
+    }
+
+    // The current affiliation reads a step larger than the previous ones.
+    .affiliation-row.is-current {
+      gap: 10px;
+
+      dt {
+        font-size: 19px;
+        font-weight: 400;
+      }
+
+      dd {
+        font-size: 19px;
+      }
+
+      .org {
+        gap: 10px;
+        font-weight: 500;
+      }
+
+      .org-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 5px;
+      }
     }
 
     .subtitle {
@@ -405,7 +510,7 @@ footer.fixed-bottom {
 
 .project-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: 28px;
   align-items: start;
   padding-top: 24px;
@@ -414,20 +519,23 @@ footer.fixed-bottom {
   box-shadow: none;
   border-radius: 0;
 
+  // Frameless figure at its own aspect ratio, so there is no letterboxing.
   .card-image {
+    position: relative;
     order: 2;
+    align-self: center;
     width: 100%;
-    aspect-ratio: 5 / 3;
+    padding: 0;
     overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--global-divider-color);
-    background: var(--thumb-bg);
+    border: 0;
+    border-radius: 4px;
+    background: none;
+    cursor: zoom-in;
 
     img,
     .card-thumbnail {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
+      height: auto;
       display: block;
       transition: transform 0.25s ease;
     }
@@ -435,6 +543,27 @@ footer.fixed-bottom {
 
   &:hover .card-image img {
     transform: scale(1.02);
+  }
+
+  .zoom-hint {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgba(28, 27, 25, 0.6);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .card-image:hover .zoom-hint,
+  .card-image:focus-visible .zoom-hint {
+    opacity: 1;
   }
 
   .card-body {
@@ -454,9 +583,9 @@ footer.fixed-bottom {
 
   .card-title {
     font-family: $font-serif;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.35;
     margin: 10px 0 6px;
     color: var(--global-text-color);
   }
@@ -519,6 +648,9 @@ footer.fixed-bottom {
 }
 
 .action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 13px;
   font-weight: 500;
   color: var(--global-text-color-light);
@@ -528,9 +660,343 @@ footer.fixed-bottom {
     color: inherit;
   }
 
+  i {
+    font-size: 12px;
+    width: 13px;
+    text-align: center;
+  }
+
   &:hover {
     color: var(--accent);
     text-decoration: none;
+  }
+}
+
+/* Photo stack gallery ----------------------------------------------------- */
+
+.about .identity .photo-stack {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  outline: none;
+
+  .stack-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--thumb-bg);
+    transition:
+      transform 0.32s cubic-bezier(0.3, 0.7, 0.2, 1),
+      filter 0.32s ease,
+      opacity 0.32s ease;
+  }
+
+  .stack-card[data-pos="0"] {
+    z-index: 3;
+  }
+}
+
+// Only a real gallery gets the fanned-out stack, shadows and click-to-advance.
+// Leave room on the right for the fanned-out cards behind.
+.about .identity:has(.is-gallery) {
+  margin-right: 72px;
+}
+
+.about .identity .photo-stack.is-gallery {
+  margin-top: 30px;
+
+  .stack-card {
+    cursor: pointer;
+    box-shadow:
+      0 1px 2px rgba(28, 27, 25, 0.08),
+      0 8px 20px rgba(28, 27, 25, 0.12);
+  }
+
+  .stack-card[data-pos="1"] {
+    z-index: 2;
+    transform: translate(20px, -18px) rotate(5deg) scale(0.96);
+    filter: brightness(0.94);
+  }
+
+  .stack-card[data-pos="2"] {
+    z-index: 1;
+    transform: translate(38px, -32px) rotate(10deg) scale(0.92);
+    filter: brightness(0.88);
+  }
+
+  .stack-card:not([data-pos="0"]):not([data-pos="1"]):not([data-pos="2"]) {
+    z-index: 0;
+    opacity: 0;
+    transform: translate(38px, -32px) rotate(10deg) scale(0.92);
+  }
+
+  .stack-card[data-moving="out-next"] {
+    z-index: 4;
+    transform: translate(170px, 12px) rotate(14deg);
+    filter: none;
+    opacity: 1;
+  }
+
+  .stack-card[data-moving="out-prev"] {
+    z-index: 0;
+    transform: translate(-170px, 12px) rotate(-14deg);
+    filter: none;
+    opacity: 1;
+  }
+
+  &:focus-visible .stack-card[data-pos="0"] {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.stack-nav {
+  position: absolute;
+  top: 108px;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3f3c37;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  // The visible chip is smaller than the 44px hit area.
+  &::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(250, 249, 246, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  svg {
+    position: relative;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+  }
+
+  &:hover svg {
+    opacity: 1;
+  }
+}
+
+.stack-prev {
+  left: 0;
+}
+
+.stack-next {
+  right: 0;
+}
+
+.photo-stack:hover .stack-nav,
+.stack-nav:focus-visible {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .stack-nav {
+    opacity: 1;
+  }
+}
+
+.stack-dots {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  width: 260px;
+  margin-top: 10px;
+}
+
+.stack-dot {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--link-line);
+    transition:
+      width 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  &[aria-current="true"]::before {
+    width: 14px;
+    background: var(--global-text-color-light);
+  }
+}
+
+/* News toggle -------------------------------------------------------------- */
+
+.news-toggle {
+  margin: 6px 0 0 96px;
+  padding: 0;
+  min-height: 32px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+/* Paper panels ------------------------------------------------------------- */
+
+button.action-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &[aria-expanded="true"] {
+    color: var(--accent);
+  }
+
+  &::after {
+    content: " ▾";
+    font-size: 10px;
+  }
+
+  &[aria-expanded="true"]::after {
+    content: " ▴";
+  }
+}
+
+.card-panel {
+  margin-top: 10px;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--global-text-color);
+  }
+}
+
+.card-bibtex {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+
+  pre {
+    margin: 0;
+    padding: 0 64px 0 0;
+    background: none;
+    border: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  code {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--global-text-color);
+    background: none;
+    padding: 0;
+  }
+}
+
+.copy-bibtex {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid var(--link-line);
+  border-radius: 6px;
+  background: var(--global-bg-color);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--global-text-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+/* Figure lightbox ---------------------------------------------------------- */
+
+.figure-lightbox {
+  max-width: min(92vw, 1100px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(28, 27, 25, 0.78);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .lightbox-caption {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: #f4f2ee;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(250, 249, 246, 0.9);
+    color: #1c1b19;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about .identity .photo-stack .stack-card {
+    transition: none;
   }
 }
 

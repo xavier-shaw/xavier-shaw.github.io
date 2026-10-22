@@ -7,9 +7,10 @@
     {% else %}
       {% assign news_limit = news_size %}
     {% endif %}
-    <ul class="news-list">
+    {% assign news_visible = site.announcements.visible | default: 3 %}
+    <ul class="news-list" id="news-list">
       {% for item in news limit: news_limit %}
-        <li>
+        <li{% if forloop.index > news_visible %} class="news-extra" hidden{% endif %}>
           <span class="news-date">{{ item.date | date: '%b %Y' }}</span>
           <span class="news-dot" aria-hidden="true"></span>
           <span class="news-text">
@@ -22,6 +23,12 @@
         </li>
       {% endfor %}
     </ul>
+    {% assign shown_total = news_size | at_most: news_limit %}
+    {% if shown_total > news_visible %}
+      <button type="button" class="news-toggle" aria-expanded="false" aria-controls="news-list" data-total="{{ shown_total }}">
+        Show all {{ shown_total }}
+      </button>
+    {% endif %}
   {% else %}
     <p>No news so far...</p>
   {% endif %}

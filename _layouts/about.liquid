@@ -15,22 +15,57 @@ layout: default
   <article>
     <section class="intro">
       <aside class="identity">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class="portrait" sizes="220px" alt="Portrait of Yuwei Xiao"
-            cache_bust=true
-          %}
+        {% assign photos = page.profile.gallery %}
+        {% if photos == nil and page.profile.image %}
+          {% assign photos = page.profile.image | split: '|' %}
+        {% endif %}
+        {% assign photo_count = photos | size %}
+        {% if photo_count > 0 %}
+          <div class="photo-stack{% if photo_count > 1 %} is-gallery{% endif %}" data-count="{{ photo_count }}">
+            {% for photo in photos %}
+              {% assign photo_file = photo.image | default: photo %}
+              {% assign photo_path = photo_file | prepend: 'assets/img/' %}
+              <div class="stack-card" data-pos="{{ forloop.index0 }}">
+                {%
+                  include figure.liquid loading="eager" path=photo_path class="portrait" sizes="260px" alt=photo.alt
+                  cache_bust=true
+                %}
+              </div>
+            {% endfor %}
+            {% if photo_count > 1 %}
+              <button type="button" class="stack-nav stack-prev" aria-label="Previous photo">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button type="button" class="stack-nav stack-next" aria-label="Next photo">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            {% endif %}
+          </div>
+          {% if photo_count > 1 %}
+            <div class="stack-dots" role="group" aria-label="Choose photo">
+              {% for photo in photos %}
+                <button type="button" class="stack-dot" data-index="{{ forloop.index0 }}" aria-label="Show photo {{ forloop.index }}"></button>
+              {% endfor %}
+            </div>
+          {% endif %}
         {% endif %}
 
         {% if page.profile.email %}
-          <a class="identity-email" href="mailto:{{ page.profile.email }}">{{ page.profile.email }}</a>
+          <a class="identity-email" href="mailto:{{ page.profile.email }}">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <span>{{ page.profile.email }}</span>
+          </a>
         {% endif %}
 
         <nav class="identity-links" aria-label="Profiles">
           {% for link in page.profile.links %}
             <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
-              {{- link.name -}}
+              {% if link.icon %}<i class="{{ link.icon }}" aria-hidden="true"></i>{% endif %}
+              <span>{{ link.name }}</span>
               <svg class="arrow" width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
                 <path d="M8 1L1 8M2.4 1H8M8 6.6V1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
               </svg>
@@ -41,7 +76,22 @@ layout: default
 
       <div class="bio">
         <h1>{{ site.first_name }} {{ site.last_name }}</h1>
-        {% if page.subtitle %}
+        {% if page.affiliations %}
+          <dl class="affiliations">
+            {% for group in page.affiliations %}
+              <div class="affiliation-row{% if group.current %} is-current{% endif %}">
+                {% if group.label %}<dt>{{ group.label }}</dt>{% endif %}
+                <dd>
+                  {% for org in group.orgs %}
+                    {% capture org_label %}{% if org.icon %}<img class="org-icon" src="{{ org.icon | prepend: '/assets/img/' | relative_url }}" alt="" width="16" height="16">{% endif %}<span>{{ org.name }}</span>{% endcapture %}
+                    {% if org.url %}<a class="org" href="{{ org.url }}" target="_blank" rel="noopener noreferrer">{{ org_label }}</a>{% else %}<span class="org">{{ org_label }}</span>{% endif %}
+                    {%- unless forloop.last %}<span class="sep" aria-hidden="true"> · </span>{% endunless %}
+                  {% endfor %}
+                </dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% elsif page.subtitle %}
           <p class="subtitle">{{ page.subtitle }}</p>
         {% endif %}
         {{ content }}

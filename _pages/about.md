@@ -5,19 +5,48 @@ permalink: /
 
 subtitle: Computer Science Ph.D. Student at UCLA
 
+# Shown under the name in place of the subtitle.
+affiliations:
+  - label: "@"
+    current: true
+    orgs:
+      - name: UCLA
+        icon: affiliations/ucla.png
+        url: https://www.cs.ucla.edu
+  - label: Prev @
+    orgs:
+      - name: UCSD
+        icon: affiliations/ucsd.png
+        url: https://ucsd.edu
+      - name: SUSTech
+        icon: affiliations/sustech.png
+        url: https://www.sustech.edu.cn/en/
+
 profile:
-  image: profile_pic.JPG
+  # Photos for the stacked gallery (files in assets/img/). Add more entries to enable switching.
+  gallery:
+    - image: profile_yellowstone.jpg
+      alt: Yuwei Xiao at a hot spring in Yellowstone at dusk
+    - image: profile_cactus.jpg
+      alt: Yuwei Xiao standing among tall cacti
+    - image: profile_river.jpg
+      alt: Yuwei Xiao by a river over granite in a pine forest
   email: yuweix@ucla.edu
   links:
     - name: CV
+      icon: fa-regular fa-file-lines
       url: /assets/pdf/resume.pdf
     - name: Google Scholar
+      icon: fa-brands fa-google-scholar
       url: https://scholar.google.com/citations?user=1kBOXhsAAAAJ&hl=en
     - name: GitHub
+      icon: fa-brands fa-github
       url: https://github.com/xavier-shaw
     - name: X
+      icon: fa-brands fa-x-twitter
       url: https://x.com/XavierXiao_
     - name: LinkedIn
+      icon: fa-brands fa-linkedin
       url: https://www.linkedin.com/in/yuwei-xiao-ucla/
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"

@@ -6,14 +6,19 @@ Usage: {% include project_card.liquid entry=entry %}
 <div class="project-card">
   <!-- Visual Abstract / Thumbnail -->
   {% if entry.preview %}
-    <div class="card-image">
+    <button type="button" class="card-image" data-lightbox-caption="{{ entry.title | escape }}" aria-label="Enlarge figure: {{ entry.title | escape }}">
       {% if entry.preview contains '://' %}
         <img src="{{ entry.preview }}" alt="{{ entry.title | truncate: 60 }}" class="card-thumbnail">
       {% else %}
         {% assign image_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
         <img src="{{ image_path | relative_url }}" alt="{{ entry.title | truncate: 60 }}" class="card-thumbnail" loading="lazy">
       {% endif %}
-    </div>
+      <span class="zoom-hint" aria-hidden="true">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+          <path d="M8.5 1.5h4v4M5.5 12.5h-4v-4M12.5 1.5L8 6M1.5 12.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </button>
   {% endif %}
 
   <div class="card-body">
@@ -93,6 +98,7 @@ Usage: {% include project_card.liquid entry=entry %}
     {% if entry.pdf %}
       <a href="{{ entry.pdf | prepend: '/assets/pdf/' }}" 
          class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
         <span>PDF</span>
       </a>
     {% endif %}
@@ -109,6 +115,7 @@ Usage: {% include project_card.liquid entry=entry %}
 
     {% if entry.code %}
       <a href="{{ entry.code }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
         <span>Code</span>
       </a>
     {% endif %}
@@ -128,7 +135,8 @@ Usage: {% include project_card.liquid entry=entry %}
     {% endif %}
 
     {% if entry.doi %}
-      <a href="{{ entry.doi }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+      <a href="{% if entry.doi contains '://' %}{{ entry.doi }}{% else %}https://doi.org/{{ entry.doi }}{% endif %}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-link" aria-hidden="true"></i>
         <span>DOI</span>
       </a>
     {% endif %}
@@ -138,6 +146,16 @@ Usage: {% include project_card.liquid entry=entry %}
         <span>arXiv</span>
       </a>
     {% endif %}
+
+    <button type="button" class="action-btn card-toggle" aria-expanded="false" aria-controls="bib-{{ entry.key }}">
+      <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+      <span>BibTeX</span>
+    </button>
+  </div>
+
+  <div class="card-panel card-bibtex" id="bib-{{ entry.key }}" hidden>
+    <pre><code>{{ entry.bibtex | hideCustomBibtex | strip }}</code></pre>
+    <button type="button" class="copy-bibtex">Copy</button>
   </div>
   </div>
 </div>
