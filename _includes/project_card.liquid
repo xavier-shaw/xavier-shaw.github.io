@@ -152,10 +152,11 @@ Usage: {% include project_card.liquid entry=entry %}
       <span>BibTeX</span>
     </button>
   </div>
+  </div>
 
+  <!-- Full-width row below text and figure, so opening it never moves the figure -->
   <div class="card-panel card-bibtex" id="bib-{{ entry.key }}" hidden>
     <pre><code>{{ entry.bibtex | hideCustomBibtex | strip }}</code></pre>
     <button type="button" class="copy-bibtex">Copy</button>
-  </div>
   </div>
 </div>

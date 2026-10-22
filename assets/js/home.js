@@ -13,7 +13,7 @@
     const n = cards.length;
     if (n < 2) return;
 
-    let idx = 0;
+    let idx = Math.min(Math.max(parseInt(stack.dataset.start, 10) || 0, 0), n - 1);
     let busy = false;
     const SHUFFLE_MS = reduceMotion ? 0 : 300;
 

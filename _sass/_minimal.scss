@@ -407,6 +407,11 @@ footer.fixed-bottom {
     }
   }
 
+  // The selected-papers list carries a 32px top margin from the base theme.
+  .home-section .publications {
+    margin-top: 0;
+  }
+
   .section-head {
     display: flex;
     align-items: baseline;
@@ -840,7 +845,7 @@ footer.fixed-bottom {
 }
 
 .stack-dot {
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   padding: 0;
   border: 0;
@@ -865,6 +870,34 @@ footer.fixed-bottom {
   &[aria-current="true"]::before {
     width: 14px;
     background: var(--global-text-color-light);
+  }
+
+  // A caption replaces the dot only while its photo is on top.
+  .dot-label {
+    display: block;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--global-text-color-light);
+    opacity: 0;
+    transition:
+      max-width 0.3s ease,
+      opacity 0.2s ease;
+  }
+
+  &:has(.dot-label)[aria-current="true"] {
+    padding: 0 6px;
+
+    &::before {
+      display: none;
+    }
+
+    .dot-label {
+      max-width: 160px;
+      opacity: 1;
+    }
   }
 }
 
@@ -924,6 +957,9 @@ button.action-btn {
 }
 
 .card-bibtex {
+  grid-column: 1 / -1;
+  order: 3;
+  margin-top: -12px; // pull up against the card's 28px row gap
   position: relative;
   padding: 14px 16px;
   border-radius: 8px;

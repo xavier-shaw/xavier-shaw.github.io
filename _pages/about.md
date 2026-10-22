@@ -29,12 +29,16 @@ affiliations:
 
 profile:
   # Photos for the stacked gallery (files in assets/img/). Add more entries to enable switching.
+  gallery_start: 2 # which photo (1-based) is on top when the page loads
   gallery:
-    - image: profile_yellowstone.jpg
-      alt: Yuwei Xiao at a hot spring in Yellowstone at dusk
     - image: profile_cactus.jpg
+      caption: at Phoenix
       alt: Yuwei Xiao standing among tall cacti
+    - image: profile_yellowstone.jpg
+      caption: at Yellowstone
+      alt: Yuwei Xiao at a hot spring in Yellowstone at dusk
     - image: profile_river.jpg
+      caption: at Yosemite
       alt: Yuwei Xiao by a river over granite in a pine forest
   email: yuweix@ucla.edu
   links:

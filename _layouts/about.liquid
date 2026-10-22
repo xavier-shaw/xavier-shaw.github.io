@@ -21,11 +21,13 @@ layout: default
         {% endif %}
         {% assign photo_count = photos | size %}
         {% if photo_count > 0 %}
-          <div class="photo-stack{% if photo_count > 1 %} is-gallery{% endif %}" data-count="{{ photo_count }}">
+          {% assign start_index = page.profile.gallery_start | default: 1 | minus: 1 | at_least: 0 | at_most: photo_count | modulo: photo_count %}
+          <div class="photo-stack{% if photo_count > 1 %} is-gallery{% endif %}" data-count="{{ photo_count }}" data-start="{{ start_index }}">
             {% for photo in photos %}
               {% assign photo_file = photo.image | default: photo %}
               {% assign photo_path = photo_file | prepend: 'assets/img/' %}
-              <div class="stack-card" data-pos="{{ forloop.index0 }}">
+              {% assign card_pos = forloop.index0 | minus: start_index | plus: photo_count | modulo: photo_count %}
+              <div class="stack-card" data-pos="{{ card_pos }}">
                 {%
                   include figure.liquid loading="eager" path=photo_path class="portrait" sizes="260px" alt=photo.alt
                   cache_bust=true
@@ -48,7 +50,9 @@ layout: default
           {% if photo_count > 1 %}
             <div class="stack-dots" role="group" aria-label="Choose photo">
               {% for photo in photos %}
-                <button type="button" class="stack-dot" data-index="{{ forloop.index0 }}" aria-label="Show photo {{ forloop.index }}"></button>
+                <button type="button" class="stack-dot" data-index="{{ forloop.index0 }}" aria-label="Show photo {{ forloop.index }}{% if photo.caption %}: {{ photo.caption }}{% endif %}">
+                  {%- if photo.caption -%}<span class="dot-label">{{ photo.caption }}</span>{%- endif -%}
+                </button>
               {% endfor %}
             </div>
           {% endif %}
