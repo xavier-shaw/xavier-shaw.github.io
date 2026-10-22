@@ -76,6 +76,13 @@ layout: default
 
       <div class="bio">
         <h1>{{ site.first_name }} {{ site.last_name }}</h1>
+        {% if page.name_native or page.name_pronunciation %}
+          <p class="name-native">
+            {% if page.name_pronunciation %}<span class="pronounce">Pronounced “{{ page.name_pronunciation }}”</span>{% endif %}
+            {% if page.name_native and page.name_pronunciation %}<span class="sep" aria-hidden="true">·</span>{% endif %}
+            {% if page.name_native %}<span class="native" lang="zh-Hans">{{ page.name_native }}</span>{% endif %}
+          </p>
+        {% endif %}
         {% if page.affiliations %}
           <dl class="affiliations">
             {% for group in page.affiliations %}

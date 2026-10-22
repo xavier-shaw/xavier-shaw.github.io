@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **PriorWeaver** was accepted to [CHI 2026](https://chi2026.acm.org/)!
+Our paper **PriorWeaver** was accepted to [CHI 2026](https://chi2026.acm.org/)

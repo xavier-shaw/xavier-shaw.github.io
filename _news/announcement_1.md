@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Attended [UIST 2023](https://uist.acm.org/2023/) in San Francisco!
+Attended [UIST 2023](https://uist.acm.org/2023/) in San Francisco

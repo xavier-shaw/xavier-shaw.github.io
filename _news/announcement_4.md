@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our demo **ReadFlect** was accepted to [UIST 2025](https://uist.acm.org/2025/)!
+Our demo **ReadFlect** was accepted to [UIST 2025](https://uist.acm.org/2025/)

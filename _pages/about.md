@@ -4,6 +4,8 @@ title: about
 permalink: /
 
 subtitle: Computer Science Ph.D. Student at UCLA
+name_native: 肖煜玮
+name_pronunciation: yoo-way shyow
 
 # Shown under the name in place of the subtitle.
 affiliations:
@@ -15,6 +17,9 @@ affiliations:
         url: https://www.cs.ucla.edu
   - label: Prev @
     orgs:
+      - name: MSR
+        icon: affiliations/microsoft.svg
+        url: https://www.microsoft.com/en-us/research/
       - name: UCSD
         icon: affiliations/ucsd.png
         url: https://ucsd.edu
@@ -53,13 +58,13 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-Hi, I am Yuwei! I’m a second-year Ph.D. student in Computer Science at UCLA, advised by [Prof. Eunice Jun](https://eunicemjun.com) in the [Computation and Discovery Lab](https://ucla-cdl.org); I also work closely with [Prof. Antti Oulasvirta](https://users.aalto.fi/~oulasvir/) at Aalto University.
+Hi, I am Yuwei! I’m a third-year Ph.D. student in Computer Science at UCLA, advised by [Prof. Eunice Jun](https://emjun.github.io/); I also work closely with [Prof. J.D. Zamfirescu-Pereira](https://zamfi.net/).
 
-My research explores how interactive systems can help people understand and make sense of complex data and models, empowering them to combine, manage, and extend their knowledge with powerful computational tools. 
-I design and build interactive visualization interfaces that make abstract or opaque concepts more tangible, supporting better reasoning, communication, and decision-making.
+My research lies at the intersection of **human–computer interaction (HCI)**, **data visualization**, and **human–AI collaboration**. 
+I design and study interactive systems that help people (i) understand and communicate complex data and models, and (ii) interpret, steer, and work alongside AI.
 
-Broadly, my interests lie at the intersection of **human–computer interaction**, **data visualization**, **human–AI collaboration**, and **sense-making**. I’m particularly passionate about visual thinking—how visualization can spark insight, creativity, and shared understanding between people and intelligent systems.
+I aspire to build collaborative experiences in which humans and AI stay in a tight loop, with human knowledge aligning AI as AI augments human intelligence.
 
-Previously, I was fortunated to work with [Prof. Haojian Jin](https://www.haojianj.in) in the at UCSD. I earned my bachelor degree from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/).
+I obtained my bachelor degree in Computer Science from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/). Previously, I was fortunated to intern at Microsoft Research with [Chenglong Wang](https://chenglongwang.org/), and work with [Prof. Haojian Jin](https://www.haojianj.in) at UCSD.
 
-> **⭐️ I’m actively seeking research internship opportunities for Summer 2026! If you'd like to collaborate or just chat about research, feel free to reach out :)**
+> **⭐️ I’m seeking research internship opportunities! If you'd like to collaborate or chat about research, please feel free to reach out :)**

@@ -247,6 +247,27 @@ footer.fixed-bottom {
       margin: 0;
     }
 
+    .name-native {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: var(--global-text-color-light);
+
+      .pronounce {
+        font-size: 14px;
+      }
+
+      .native {
+        font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: var(--global-text-color);
+      }
+    }
+
     .affiliations {
       display: flex;
       flex-direction: column;
@@ -374,7 +395,7 @@ footer.fixed-bottom {
   }
 
   .home-section {
-    margin-top: 72px;
+    margin-top: 44px;
 
     > h2,
     .section-head h2 {
@@ -1040,7 +1061,7 @@ button.action-btn {
     }
 
     .home-section {
-      margin-top: 56px;
+      margin-top: 36px;
     }
   }
 

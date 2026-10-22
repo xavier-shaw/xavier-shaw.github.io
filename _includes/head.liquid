@@ -29,6 +29,13 @@
   type="text/css"
   href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
 >
+{% if page.name_native %}
+  <!-- Serif CJK face for the native name, subset to just those characters -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&text={{ page.name_native | url_encode }}&display=swap"
+  >
+{% endif %}
 
 <!-- Code Syntax Highlighting -->
 <link
