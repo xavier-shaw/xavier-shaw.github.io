@@ -103,12 +103,23 @@ Usage: {% include project_card.liquid entry=entry %}
       </a>
     {% endif %}
 
+    {% if entry.blog %}
+      <a href="{{ entry.blog }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+        <span>Blog</span>
+      </a>
+    {% endif %}
+
+    {% if entry.website %}
+      <a href="{{ entry.website }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <span>Website</span>
+      </a>
+    {% endif %}
+
     {% if entry.demo %}
       <a href="{{ entry.demo }}" class="action-btn" target="_blank" rel="noopener noreferrer">
-        <span>Demo</span>
-      </a>
-    {% elsif entry.website %}
-      <a href="{{ entry.website }}" class="action-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
         <span>Demo</span>
       </a>
     {% endif %}
@@ -147,16 +158,20 @@ Usage: {% include project_card.liquid entry=entry %}
       </a>
     {% endif %}
 
-    <button type="button" class="action-btn card-toggle" aria-expanded="false" aria-controls="bib-{{ entry.key }}">
-      <i class="fa-solid fa-pencil" aria-hidden="true"></i>
-      <span>BibTeX</span>
-    </button>
+    {% unless entry.bibtex_show == 'false' %}
+      <button type="button" class="action-btn card-toggle" aria-expanded="false" aria-controls="bib-{{ entry.key }}">
+        <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+        <span>BibTeX</span>
+      </button>
+    {% endunless %}
   </div>
   </div>
 
   <!-- Full-width row below text and figure, so opening it never moves the figure -->
-  <div class="card-panel card-bibtex" id="bib-{{ entry.key }}" hidden>
-    <pre><code>{{ entry.bibtex | hideCustomBibtex | strip }}</code></pre>
-    <button type="button" class="copy-bibtex">Copy</button>
-  </div>
+  {% unless entry.bibtex_show == 'false' %}
+    <div class="card-panel card-bibtex" id="bib-{{ entry.key }}" hidden>
+      <pre><code>{{ entry.bibtex | hideCustomBibtex | strip }}</code></pre>
+      <button type="button" class="copy-bibtex">Copy</button>
+    </div>
+  {% endunless %}
 </div>
