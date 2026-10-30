@@ -32,7 +32,7 @@ profile:
   gallery_start: 2 # which photo (1-based) is on top when the page loads
   gallery:
     - image: profile_cactus.jpg
-      caption: at Phoenix
+      caption: in Phoenix
       alt: Yuwei Xiao standing among tall cacti
     - image: profile_yellowstone.jpg
       caption: at Yellowstone
@@ -53,7 +53,7 @@ profile:
       url: https://github.com/xavier-shaw
     - name: X
       icon: fa-brands fa-x-twitter
-      url: https://x.com/XavierXiao_
+      url: https://x.com/yuweixiao_
     - name: LinkedIn
       icon: fa-brands fa-linkedin
       url: https://www.linkedin.com/in/yuwei-xiao-ucla/
