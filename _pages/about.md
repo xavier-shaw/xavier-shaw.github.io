@@ -64,11 +64,11 @@ social: false # includes social icons at the bottom of the page
 
 Hi, I am Yuwei! I’m a third-year Ph.D. student in Computer Science at UCLA, advised by [Prof. Eunice Jun](https://emjun.github.io/); I also work closely with [Prof. J.D. Zamfirescu-Pereira](https://zamfi.net/).
 
-My research lies at the intersection of **human–computer interaction (HCI)**, **data visualization**, and **human–AI collaboration**. 
-I design and study interactive systems that help people (i) understand and communicate complex data and models, and (ii) interpret, steer, and work alongside AI.
+My research lies at the intersection of **human–computer interaction (HCI)**, **data visualization**, and **human–AI alignment**. 
+I design, build and study interactive systems that help people (i) understand and communicate complex data and models, and (ii) interpret, steer, and work alongside AI.
 
 I aspire to build collaborative experiences in which humans and AI stay in a tight loop, with human knowledge aligning AI as AI augments human intelligence.
 
-I obtained my bachelor’s degree in Computer Science from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/) (SUSTech). Previously, I was fortunate to intern at Microsoft Research with [Chenglong Wang](https://chenglongwang.org/), and work with [Prof. Haojian Jin](https://www.haojianj.in) at UCSD.
+I obtained my bachelor’s degree in Computer Science from [Southern University of Science and Technology](https://www.sustech.edu.cn/en/) (SUSTech). Previously, I was fortunate to work with [Dr. Chenglong Wang](https://chenglongwang.org/) at Microsoft Research, [Prof. Antti Oulasvirta](https://users.aalto.fi/~oulasvir/) at Aalto University and [Prof. Haojian Jin](https://www.haojianj.in) at UCSD.
 
-> **⭐️ I’m seeking research internship opportunities! If you'd like to collaborate or chat about research, please feel free to reach out :)**
+> **⭐️ I’m always happy to chat about research or work on something together. If anything here sounds interesting, feel free to reach out :)**
